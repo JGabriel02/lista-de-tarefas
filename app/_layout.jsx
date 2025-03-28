@@ -1,20 +1,48 @@
-import {Alert, FlatList, Image, Pressable, StyleSheet, Text, TextInput, View} from "react-native"
+import {FlatList, Image, Pressable, StyleSheet, Text, TextInput, View} from "react-native"
 import logo from "../assets/images/Check.png"
 import { colors } from "../constants/colors"
 import Task from "../components/Task"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 
-const initialTasks = [
-  { id: 1, completed: true, text: "Fazer café" },
-  { id: 2, completed: false, text: "Estudar React Native" },
-  { id: 3, completed: false, text: "Academia" }
-]
+//const initialTasks = [
+  //{ id: 1, completed: true, text: "Fazer café" },
+  //{ id: 2, completed: false, text: "Estudar React Native" },
+  //{ id: 3, completed: false, text: "Academia" }
+//]
 
 
 export default function RootLayout() {
-  const [tasks, setTasks] = useState(initialTasks)
+  const [tasks, setTasks] = useState([])
   const [text, setText] = useState("")
+
+  useEffect (() => {
+    getTasksAsyncStorage = async () => {
+      try {
+        const jsonValue = await AsyncStorage.getItem('tasks')
+        if (jsonValue !== null) {
+          setTasks(JSON.parse(jsonValue))
+        }
+      } catch(e) {
+        console.log(e)      }
+    }
+    getTasksAsyncStorage()
+  }, [])
+
+
+  useEffect (() => {
+    setTasksAsyncStorage = async () => {
+      try {
+        const jsonValue = JSON.stringify(tasks)
+        await AsyncStorage.setItem('tasks', jsonValue)
+      } catch(e) {
+        console.log(e)
+      }
+    }
+
+    setTasksAsyncStorage()
+  }, [tasks])
 
   const addTaks = () => {
     const newTask = {id: tasks.length +1, completed: false, text:text}
@@ -51,7 +79,12 @@ export default function RootLayout() {
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Task text={item.text} completed={item.completed}/>}
+        renderItem={({ item }) => <Task 
+        text={item.text} 
+        initialCompletedcompleted={item.completed}
+        deleteTask={() => setTasks(tasks.filter((t) => t.id !== item.id))}
+        />  
+      }
       />
       </View>
       

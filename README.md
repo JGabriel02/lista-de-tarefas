@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# Lista de Tarefas
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este é um aplicativo de lista de tarefas desenvolvido com [Expo](https://expo.dev) e React Native feito para o desafio prático da rocketseat. Ele permite que os usuários adicionem, concluam e excluam tarefas, além de acompanhar o progresso das tarefas concluídas. No momento ainda quero organizar melhor e dividir o arquivo app/_layout.jsx para que fique melhor organizado.
 
-## Get started
+## Funcionalidades
 
-1. Install dependencies
+- Adicionar novas tarefas com título.
+- Marcar tarefas como concluídas.
+- Excluir tarefas individualmente ou todas de uma vez.
+- Barra de progresso para acompanhar a porcentagem de tarefas concluídas.
+- Persistência de dados usando `AsyncStorage`.
 
-   ```bash
-   npm install
-   ```
+## Estrutura do Projeto
 
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+.gitignore
+app.json
+package.json
+README.md
+app/
+  _layout.jsx
+assets/
+  images/
+    Check.png
+components/
+  Task.jsx
+constants/
+  colors.js
+context/
+styles/
+  styles.js
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Principais Arquivos
 
-## Learn more
+- **[`app/_layout.jsx`](app/_layout.jsx)**: Componente principal que gerencia a lógica e a interface do aplicativo.
+- **[`components/Task.jsx`](components/Task.jsx)**: Componente que representa uma tarefa individual.
+- **[`constants/colors.js`](constants/colors.js)**: Arquivo que define as cores usadas no aplicativo.
+- **[`app.json`](app.json)**: Configurações do projeto Expo.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Tecnologias Utilizadas
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **React Native**: Framework para desenvolvimento de aplicativos móveis.
+- **Expo**: Plataforma para desenvolvimento e execução de aplicativos React Native.
+- **AsyncStorage**: Biblioteca para persistência de dados localmente.
+- **react-native-gesture-handler**: Para suporte a gestos, como swipe.

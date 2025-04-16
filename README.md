@@ -20,7 +20,7 @@ Ele permite que os usuários adicionem, concluam e excluam tarefas, além de aco
 ## 📱 Demonstração
 
 <div align="center">
-  <img src="assets/demo/demo.gif" width="300" alt="Demonstração do aplicativo em funcionamento" />
+  <img src="assets/demo/demo1.gif" width="300" alt="Demonstração do aplicativo em funcionamento" />
 </div>
 
 ---

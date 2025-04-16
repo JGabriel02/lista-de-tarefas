@@ -8,7 +8,6 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    
     "ios": {
       "supportsTablet": true
     },
@@ -16,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/Check.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.slpjg007.listadetarefas"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +37,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "331a5c9f-4c38-4366-b01b-3746c5559e55"
+      }
+    },
+    "owner": "slpjg007"
   }
 }
